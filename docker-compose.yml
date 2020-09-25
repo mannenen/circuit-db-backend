@@ -1,0 +1,37 @@
+version: "3.7"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - circuit-db-backend
+    volumes:
+      - /opt/data/mongo:/var/lib/mongodb
+  backend:
+    depends_on: 
+      - mongo
+    build: .
+    image: venyunoc/circuit-db-backend:latest
+    container_name: backend
+    volumes:
+      - ./app/src:/app/src
+      - ./app/tests:/app/tests
+    ports:
+      - "5000:5000"
+    networks:
+      - circuit-db-backend
+  admin:
+    depends_on:
+      - mongo
+    image: mongo-express
+    container_name: admin
+    ports:
+      - "8081:8081"
+    networks:
+      - circuit-db-backend
+
+networks:
+  circuit-db-backend:
+  
