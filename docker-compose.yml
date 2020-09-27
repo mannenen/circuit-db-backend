@@ -16,8 +16,7 @@ services:
     image: venyunoc/circuit-db-backend:latest
     container_name: backend
     volumes:
-      - ./app/src:/app/src
-      - ./app/tests:/app/tests
+      - ./src:/app/src
     ports:
       - "5000:5000"
     networks:

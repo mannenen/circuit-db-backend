@@ -1,8 +1,10 @@
 from starlette.requests import Request
+# from starlette.responses import JSONResponse
 
 
 def all_circuits(request: Request):
     pass
+    # return JSONResponse(content=circuit_list, status_code=200, media_type="application/json")
 
 
 def circuit_by_cid(request: Request):

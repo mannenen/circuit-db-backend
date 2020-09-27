@@ -1,0 +1,33 @@
+[
+    {
+        "provider": "QuanturyLink",
+        "cid": "excellent-eggplant",
+        "customers": [
+            {
+                "name": "Plains Elementary",
+                "email": "noc@plains-elem.edu"
+            },
+            {
+                "name": "Junsdon Cryptomining",
+                "email": "xXx_t0mbkill4_420_xXx@hotmail.com",
+                "phone": "(555) 453-3392"
+            }
+        ]
+    },
+    {
+        "provider": "Unditi Fibers",
+        "cid": "juicy-hamburgers",
+        "customers": [],
+        "a": {
+            "street_1": "1493 Blumbo St",
+            "city": "Frundleman",
+            "state": "LA",
+            "zip_code": "77083"
+        }
+    },
+    {
+        "provider": "EAST TEL",
+        "cid": "farted-chair",
+        "customers": []
+    }
+]

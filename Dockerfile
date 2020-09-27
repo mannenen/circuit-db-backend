@@ -13,4 +13,4 @@ RUN pip install -r /app/requirements.txt
 COPY pytest.ini /app/tests/pytest.ini
 
 WORKDIR /app/src
-CMD uvicorn --host 0.0.0.0 --port 5000 --access-log --reload main:app --log-level debug
+CMD uvicorn --host 0.0.0.0 --port 5000 --access-log --reload backend.main:app --log-level debug
