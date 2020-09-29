@@ -1,8 +1,8 @@
 from starlette.routing import Mount
 
-from backend.routes.circuits import circuit_routes
+from backend.endpoints.circuits import routes
 
 
 application_routes = [
-    Mount('/api/v1/circuits', routes=circuit_routes)
+    Mount('/api/v1/circuits', routes=routes)
 ]

@@ -1,4 +1,4 @@
-from backend.database import MongoDatabase
+from backend.database.mongo import MongoDatabase
 
 
 def test_get_all_circuits_returns_array(db: MongoDatabase):

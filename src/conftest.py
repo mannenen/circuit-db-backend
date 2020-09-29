@@ -3,7 +3,7 @@ import pytest
 from starlette.testclient import TestClient
 
 from backend.main import app
-from backend.database import MongoDatabase
+from backend.database.mongo import MongoDatabase
 
 
 @pytest.fixture
