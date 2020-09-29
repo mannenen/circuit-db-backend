@@ -18,8 +18,9 @@ $ source .venv/bin/activate
 Create a `.env` file with values for the following keys:
 
 1. `DEBUG` - whether to run the app in debug mode or not (default=False)
-2. `MONGODB_HOSTNAME` - the hostname of the MongoDB server (default=`mongo`)
-3. `MONGODB_TABLENAME` - the name of the database table to store data (default=`test_data`)
+2. `TESTING` - whether the app is under test or not (default=False)
+3. `MONGODB_HOSTNAME` - the hostname of the MongoDB server (default=`mongo`)
+4. `MONGODB_TABLENAME` - the name of the database table to store data (default=`test_data`)
 
 `$ docker-compose up -d --build`
 

@@ -7,10 +7,11 @@ from backend.database import MongoDatabase
 
 
 @pytest.fixture
-def test_client():
-    yield TestClient(app)
+def db(mongodb):
+    yield MongoDatabase(mongodb)
 
 
 @pytest.fixture
-def db(mongodb):
-    yield MongoDatabase(mongodb)
+def test_client(db):
+    app.state.db = db
+    yield TestClient(app)
