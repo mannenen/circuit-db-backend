@@ -23,5 +23,8 @@ class CircuitCollection(HTTPEndpoint):
             missing_fields = ', '.join(missing)
             raise HTTPException(status_code=400, detail=f"Missing {missing_fields}")
 
-        added = request.app.state.db.add_circuit(data)
-        return JSONResponse(content=added, status_code=201)
+        added, returned = request.app.state.db.add_circuit(data)
+        if not added:
+            raise HTTPException(status_code=returned["status_code"], detail=returned["detail"])
+
+        return JSONResponse(content=returned, status_code=201)

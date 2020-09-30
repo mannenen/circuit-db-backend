@@ -51,8 +51,26 @@ def test_add_circuit_only_requires_cid_and_provider(test_client):
         "customers": []
     }
 
+def test_add_circuit_with_existing_cid_returns_conflict(test_client):
+    circuit = {
+        "provider": "Quantro y Dos Equis Consulting",
+        "cid": "excellent-eggplant",
+        "customers": []
+    }
+
+    response: Response = test_client.post('/api/v1/circuits', json=circuit)
+
+    assert response.status_code == 409
+    assert response.json()['detail'] == "Duplicate CID"
+
 
 def test_delete_circuits_returns_method_not_allowed(test_client):
     response: Response = test_client.delete('/api/v1/circuits')
+
+    assert response.status_code == 405
+
+
+def test_put_circuits_returns_method_not_allowed(test_client):
+    response: Response = test_client.put('/api/v1/circuits', json={})
 
     assert response.status_code == 405

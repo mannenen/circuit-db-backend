@@ -31,8 +31,9 @@ def test_add_circuit_returns_created_circuit(db: MongoDatabase):
         "cid": 'safkjewkjsd',
         "customers": []
     }
-    test = db.add_circuit(circuit)
+    result, test = db.add_circuit(circuit)
 
+    assert result == True
     assert test == circuit
 
 
@@ -41,7 +42,8 @@ def test_add_circuit_without_customers_adds_empty_customer_array(db: MongoDataba
         "provider": "FFJDKFJKDFJFDJ",
         "cid": "weifsudikfj30dfksdjfsdfkj"
     }
-    test = db.add_circuit(circuit)
+    result, test = db.add_circuit(circuit)
 
+    assert result == True
     assert "customers" in test.keys()
     assert test["customers"] == []
