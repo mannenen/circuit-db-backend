@@ -8,10 +8,10 @@ from .locations import ALocationEndpoint, ZLocationEndpoint
 
 
 routes = [
-    Route("/", CircuitCollection),
-    Route("/{cid}", CIDEndpoint),
-    Route("/{cid}/provider", CircuitProvider),
-    Route("/{cid}/customers", CircuitCustomers),
-    Route("/{cid}/a", ALocationEndpoint),
-    Route("/{cid}/z", ZLocationEndpoint),
+    Route("/circuits", CircuitCollection),
+    Route("/circuits/{cid}", CIDEndpoint),
+    Route("/circuits/{cid}/provider", CircuitProvider),
+    Route("/circuits/{cid}/customers", CircuitCustomers),
+    Route("/circuits/{cid}/a", ALocationEndpoint),
+    Route("/circuits/{cid}/z", ZLocationEndpoint),
 ]

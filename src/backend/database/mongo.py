@@ -19,5 +19,13 @@ class MongoDatabase:
     def get_circuit_by_cid(self, cid):
         return self.db.circuits.find_one(filter={"cid": cid})
 
-    def add_circuit(self, circuit: dict = {}):
-        pass
+    def add_circuit(self, circuit: dict):
+        if "customers" not in circuit.keys():
+            circuit["customers"] = []
+        to_insert = circuit.copy()
+
+        insert = self.db.circuits.insert_one(to_insert)
+        if insert is None:
+            return None
+
+        return self.db.circuits.find_one({"_id": insert.inserted_id}, {"_id": False})

@@ -4,5 +4,5 @@ from backend.endpoints.circuits import routes
 
 
 application_routes = [
-    Mount('/api/v1/circuits', routes=routes)
+    Mount('/api/v1', routes=routes)
 ]

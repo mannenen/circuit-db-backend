@@ -23,3 +23,25 @@ def test_get_circuit_by_valid_cid_returns_circuit(db: MongoDatabase):
     test = db.get_circuit_by_cid("excellent-eggplant")
 
     assert "provider" in test.keys()
+
+
+def test_add_circuit_returns_created_circuit(db: MongoDatabase):
+    circuit = {
+        "provider": 'sfdkjsakjasdfkj',
+        "cid": 'safkjewkjsd',
+        "customers": []
+    }
+    test = db.add_circuit(circuit)
+
+    assert test == circuit
+
+
+def test_add_circuit_without_customers_adds_empty_customer_array(db: MongoDatabase):
+    circuit = {
+        "provider": "FFJDKFJKDFJFDJ",
+        "cid": "weifsudikfj30dfksdjfsdfkj"
+    }
+    test = db.add_circuit(circuit)
+
+    assert "customers" in test.keys()
+    assert test["customers"] == []
