@@ -1,6 +1,6 @@
 from starlette.routing import Mount
 
-from backend.endpoints.circuits import routes
+from backend.endpoints import routes
 
 
 application_routes = [

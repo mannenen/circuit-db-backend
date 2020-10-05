@@ -96,3 +96,12 @@ def test_update_circuit_by_cid_returns_none_if_attempt_to_modify_cid(db: MongoDa
 
     modified = db.get_circuit_by_cid("haberdasher-surprise")
     assert modified is None
+
+
+def test_provider_list_returns_list_of_all_three_providers(db: MongoDatabase):
+    test = db.get_all_providers()
+    assert len(test) == 3
+    assert "EAST TEL" in test
+    assert "QuanturyLink" in test
+    assert "Unditi Fibers" in test
+

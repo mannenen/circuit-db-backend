@@ -52,3 +52,6 @@ class MongoDatabase:
                                                  {"$set": updates},
                                                  projection=self.fields,
                                                  return_document=ReturnDocument.AFTER)
+
+    def get_all_providers(self):
+        return self.circuits.distinct("provider")
